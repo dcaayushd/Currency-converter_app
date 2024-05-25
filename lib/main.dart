@@ -1,3 +1,4 @@
+import 'package:currency_converter_app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Currency Converter App',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: HomeScreen(),
+      home: SettingsScreen(),
     );
   }
 }

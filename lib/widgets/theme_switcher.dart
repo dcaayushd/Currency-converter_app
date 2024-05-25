@@ -27,56 +27,55 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
     await prefs.setBool('isDarkMode', _isDarkMode);
   }
 
-  // void _toggleTheme() {
-  //   setState(() {
-  //     _isDarkMode = !_isDarkMode;
-  //   });
-  //   _saveThemePreference();
-  //   // Rebuild the app with the new theme
-  //   ThemeProvider.of(context)
-  //       .setTheme(_isDarkMode ? ThemeData.dark() : ThemeData.light());
-  // }
   void _toggleTheme() {
-  setState(() {
-    _isDarkMode = !_isDarkMode;
-  });
-  _saveThemePreference();
-  
-  // Check if ThemeProvider is not null before calling setTheme
-  final themeProvider = ThemeProvider.of(context);
-  if (themeProvider != null) {
-    themeProvider.setTheme(
-      Theme.of(context).copyWith(
-        brightness: _isDarkMode ? Brightness.dark : Brightness.light,
-      ),
-    );
-  }
-}
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+    _saveThemePreference();
 
+    // Access themeProvider using BuildContext extension
+    final themeProvider =
+        context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
+    if (themeProvider != null) {
+      // Call setTheme on the data (which is _ThemeProviderWidgetState)
+      themeProvider.data.setTheme(
+        Theme.of(context).copyWith(
+          brightness: _isDarkMode ? Brightness.dark : Brightness.light,
+        ),
+      );
+    } else {
+      // Handle the case where ThemeProvider is not found (optional)
+      print("ThemeProvider not found in widget tree");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Theme',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          SizedBox(height: 8.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Dark Mode'),
-              Switch(
-                value: _isDarkMode,
-                onChanged: (_) => _toggleTheme(),
-              ),
-            ],
-          ),
-        ],
+    return ThemeProvider(
+      data:
+          _ThemeProviderWidgetState(), // Pass _ThemeProviderWidgetState instance
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Theme',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            SizedBox(height: 8.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Dark Mode'),
+                Switch(
+                  value: _isDarkMode,
+                  onChanged: (_) => _toggleTheme(),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -91,8 +90,9 @@ class ThemeProvider extends InheritedWidget {
     required this.data,
   }) : super(key: key, child: child);
 
-  static _ThemeProviderWidgetState of(BuildContext context) =>
-      (context.dependOnInheritedWidgetOfExactType<ThemeProvider>()!.data);
+  static ThemeProvider? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
+  }
 
   @override
   bool updateShouldNotify(ThemeProvider old) => data != old.data;
@@ -119,7 +119,7 @@ class _ThemeProviderWidgetState extends State<ThemeProviderWidget> {
   @override
   Widget build(BuildContext context) {
     return ThemeProvider(
-      data: this,
+      data: this, // Pass _ThemeProviderWidgetState instance
       child: Theme(
         data: _themeData,
         child: widget.child,
