@@ -17,7 +17,7 @@ class _ConversionHistoryState extends State<ConversionHistory> {
           'Conversion History',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to display conversion history
       ],
     );

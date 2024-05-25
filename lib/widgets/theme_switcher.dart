@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../provider/theme_provider.dart';
+
 class ThemeSwitcher extends StatefulWidget {
   @override
   _ThemeSwitcherState createState() => _ThemeSwitcherState();
@@ -53,7 +55,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   Widget build(BuildContext context) {
     return ThemeProvider(
       data:
-          _ThemeProviderWidgetState(), // Pass _ThemeProviderWidgetState instance
+          ThemeProviderWidgetState(), // Pass ThemeProviderWidgetState instance
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -76,53 +78,6 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ThemeProvider extends InheritedWidget {
-  final _ThemeProviderWidgetState data;
-
-  ThemeProvider({
-    Key? key,
-    required Widget child,
-    required this.data,
-  }) : super(key: key, child: child);
-
-  static ThemeProvider? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
-  }
-
-  @override
-  bool updateShouldNotify(ThemeProvider old) => data != old.data;
-}
-
-class ThemeProviderWidget extends StatefulWidget {
-  final Widget child;
-
-  ThemeProviderWidget({required this.child});
-
-  @override
-  _ThemeProviderWidgetState createState() => _ThemeProviderWidgetState();
-}
-
-class _ThemeProviderWidgetState extends State<ThemeProviderWidget> {
-  ThemeData _themeData = ThemeData.light();
-
-  void setTheme(ThemeData themeData) {
-    setState(() {
-      _themeData = themeData;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ThemeProvider(
-      data: this, // Pass _ThemeProviderWidgetState instance
-      child: Theme(
-        data: _themeData,
-        child: widget.child,
       ),
     );
   }

@@ -12,25 +12,25 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ThemeSwitcher(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             CurrencyCharts(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             CurrencyNews(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             CurrencyNotifications(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             OfflineMode(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ConversionHistory(),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             FavoriteCurrencies(),
           ].map((widget) {
             return Theme(

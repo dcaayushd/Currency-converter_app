@@ -25,10 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Currency Converter'),
+        title: const Text('Currency Converter'),
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Iconsax.menu_1_outline),
+            icon: const Icon(Iconsax.menu_1_outline),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: CurrencyConverter(),
       ),
       bottomNavigationBar: custom_nav_bar.NavigationBar(),

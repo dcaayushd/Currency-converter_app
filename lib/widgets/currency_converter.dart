@@ -34,7 +34,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
         _isLoading = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Failed to fetch exchange rates'),
         ),
       );
@@ -56,15 +56,15 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
           'Currency Converter',
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         _isLoading
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextField(
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Enter amount',
                       border: OutlineInputBorder(),
                     ),
@@ -75,7 +75,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                       _convertCurrency();
                     },
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     children: [
                       Expanded(
@@ -95,7 +95,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                           },
                         ),
                       ),
-                      SizedBox(width: 16.0),
+                      const SizedBox(width: 16.0),
                       Expanded(
                         child: DropdownButton<String>(
                           value: _targetCurrency,
@@ -115,7 +115,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Text(
                     '$_amount $_baseCurrency = $_convertedAmount $_targetCurrency',
                     style: Theme.of(context).textTheme.headlineLarge,
