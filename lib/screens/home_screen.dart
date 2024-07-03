@@ -4,6 +4,8 @@ import '../widgets/currency_converter.dart';
 import '../widgets/navigation_bar.dart' as custom_nav_bar;
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

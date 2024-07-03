@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CurrencyNews extends StatefulWidget {
+  const CurrencyNews({super.key});
+
   @override
   _CurrencyNewsState createState() => _CurrencyNewsState();
 }
@@ -17,7 +19,7 @@ class _CurrencyNewsState extends State<CurrencyNews> {
           'News',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to display currency news
       ],
     );

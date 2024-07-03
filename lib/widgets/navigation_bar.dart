@@ -4,6 +4,8 @@ import '../screens/gold_silver_screen.dart';
 import '../screens/settings_screen.dart';
 
 class NavigationBar extends StatefulWidget {
+  const NavigationBar({super.key});
+
   @override
   _NavigationBarState createState() => _NavigationBarState();
 }
@@ -12,7 +14,7 @@ class _NavigationBarState extends State<NavigationBar> {
   int _selectedIndex = 0;
   final _screens = [
     HomeScreen(),
-    GoldSilverScreen(),
+    const GoldSilverScreen(),
     SettingsScreen(),
   ];
 
@@ -30,7 +32,7 @@ class _NavigationBarState extends State<NavigationBar> {
         children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.monetization_on),
             label: 'Currency Converter',

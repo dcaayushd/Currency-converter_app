@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CurrencyCharts extends StatefulWidget {
+  const CurrencyCharts({super.key});
+
   @override
   _CurrencyChartsState createState() => _CurrencyChartsState();
 }
@@ -17,7 +19,7 @@ class _CurrencyChartsState extends State<CurrencyCharts> {
           'Charts',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to display currency charts
       ],
     );

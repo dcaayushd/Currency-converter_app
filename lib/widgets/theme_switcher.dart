@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../provider/theme_provider.dart';
 
 class ThemeSwitcher extends StatefulWidget {
+  const ThemeSwitcher({super.key});
+
   @override
   _ThemeSwitcherState createState() => _ThemeSwitcherState();
 }
@@ -57,7 +59,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
       data:
           ThemeProviderWidgetState(), // Pass ThemeProviderWidgetState instance
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -65,11 +67,11 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
               'Theme',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Dark Mode'),
+                const Text('Dark Mode'),
                 Switch(
                   value: _isDarkMode,
                   onChanged: (_) => _toggleTheme(),

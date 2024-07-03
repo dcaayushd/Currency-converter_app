@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CurrencyNotifications extends StatefulWidget {
+  const CurrencyNotifications({super.key});
+
   @override
   _CurrencyNotificationsState createState() => _CurrencyNotificationsState();
 }
@@ -17,7 +19,7 @@ class _CurrencyNotificationsState extends State<CurrencyNotifications> {
           'Notifications',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to enable currency notifications
       ],
     );

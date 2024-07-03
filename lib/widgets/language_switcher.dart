@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LanguageSwitcher extends StatefulWidget {
+  const LanguageSwitcher({super.key});
+
   @override
   _LanguageSwitcherState createState() => _LanguageSwitcherState();
 }
@@ -21,11 +23,11 @@ class _LanguageSwitcherState extends State<LanguageSwitcher> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Select App Language:',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         DropdownButton<String>(
           value: _selectedLanguage,
           onChanged: (String? language) {

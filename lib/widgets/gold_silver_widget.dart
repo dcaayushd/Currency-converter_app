@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../services/gold_silver_api.dart';
 
 class GoldSilverWidget extends StatefulWidget {
+  const GoldSilverWidget({super.key});
+
   @override
   _GoldSilverWidgetState createState() => _GoldSilverWidgetState();
 }
@@ -28,7 +30,7 @@ class _GoldSilverWidgetState extends State<GoldSilverWidget> {
         _isLoading = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Failed to fetch gold and silver prices'),
         ),
       );
@@ -38,9 +40,9 @@ class _GoldSilverWidgetState extends State<GoldSilverWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -48,12 +50,12 @@ class _GoldSilverWidgetState extends State<GoldSilverWidget> {
                   'Gold and Silver Prices',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 _buildPriceCard(
                   title: 'Gold Price',
                   price: _goldSilverPrices?['gold_price'],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 _buildPriceCard(
                   title: 'Silver Price',
                   price: _goldSilverPrices?['silver_price'],
@@ -67,7 +69,7 @@ class _GoldSilverWidgetState extends State<GoldSilverWidget> {
     return Card(
       elevation: 2.0,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -75,7 +77,7 @@ class _GoldSilverWidgetState extends State<GoldSilverWidget> {
               title,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               price ?? 'N/A',
               style: Theme.of(context).textTheme.headlineLarge,

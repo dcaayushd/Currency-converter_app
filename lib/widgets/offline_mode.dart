@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OfflineMode extends StatefulWidget {
+  const OfflineMode({super.key});
+
   @override
   _OfflineModeState createState() => _OfflineModeState();
 }
@@ -17,7 +19,7 @@ class _OfflineModeState extends State<OfflineMode> {
           'Offline Mode',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to enable offline mode
       ],
     );

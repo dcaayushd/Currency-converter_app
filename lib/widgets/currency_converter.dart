@@ -3,6 +3,8 @@ import '../services/currency_api.dart';
 import '../utils/constants.dart';
 
 class CurrencyConverter extends StatefulWidget {
+  const CurrencyConverter({super.key});
+
   @override
   _CurrencyConverterState createState() => _CurrencyConverterState();
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ConversionHistory extends StatefulWidget {
+  const ConversionHistory({super.key});
+
   @override
   _ConversionHistoryState createState() => _ConversionHistoryState();
 }

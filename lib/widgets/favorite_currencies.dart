@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FavoriteCurrencies extends StatefulWidget {
+  const FavoriteCurrencies({super.key});
+
   @override
   _FavoriteCurrenciesState createState() => _FavoriteCurrenciesState();
 }
@@ -17,7 +19,7 @@ class _FavoriteCurrenciesState extends State<FavoriteCurrencies> {
           'Favorite Currencies',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
-        SizedBox(height: 16.0),
+        const SizedBox(height: 16.0),
         // Add code to display and manage favorite currencies
       ],
     );
